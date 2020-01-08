@@ -1,4 +1,8 @@
+import { Pokemon } from './../../models/pokemon.model';
+import { PokemonService } from './../pokemon.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PagedData } from 'src/app/models/pages-data.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+  private pokemons: PagedData<Pokemon>;
+
+  constructor(private pokemonService: PokemonService) { }
+
+  
 
   ngOnInit() {
+
+    this.pokemonService.getPokemons().subscribe(
+      result => {
+        this.pokemons = result;
+      }
+    )
   }
+
+
+
 
 }
