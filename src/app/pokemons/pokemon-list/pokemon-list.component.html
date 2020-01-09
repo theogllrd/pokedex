@@ -1,7 +1,9 @@
 <p class="sectionTitle">My Pokemons</p>
-<mat-list>
-  <mat-list-item *ngFor="let pokemon of pokemons.data">
+<mat-nav-list>
+ 
+  <a mat-list-item href="/detail/{{pokemon.id}}" *ngFor="let pokemon of pokemons.data">  
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="pokemon">
     <h3 matLine>{{pokemon.id}}. {{ pokemon.name }} </h3>
-  </mat-list-item>
-</mat-list>
+  </a>
+  
+<mat-nav-list>

@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material';
 import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
+import { PokemonDetailComponent } from './pokemons/pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,
