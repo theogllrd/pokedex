@@ -23,7 +23,7 @@ export class PokemonListComponent implements OnInit {
       result => {
         this.pokemons = result;
       }
-    )
+    );
   }
 
 

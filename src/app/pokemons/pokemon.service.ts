@@ -21,4 +21,8 @@ export class PokemonService {
     return this.http.get<PagedData<Pokemon>>(this.pokemonUrl, { params});
   }
 
+  getPokemonsById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(this.pokemonUrl + '/' + id);
+  }
+
 }
