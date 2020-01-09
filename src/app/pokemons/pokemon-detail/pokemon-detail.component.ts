@@ -25,6 +25,10 @@ export class PokemonDetailComponent implements OnInit {
     );
   }
 
+  playSound(): void {
+    // document.getElementById('audio').play();
+  }
+
   goBack() {
     this.location.back();
   }

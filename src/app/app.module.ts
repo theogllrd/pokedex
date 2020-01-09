@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatListModule, MatCardModule, MatGridListModule, MatChipsModule, MatButtonModule} from '@angular/material';
 import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './pokemons/pokemon-detail/pokemon-detail.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PokemonDetailComponent } from './pokemons/pokemon-detail/pokemon-detail
     MatCardModule,
     MatGridListModule,
     MatChipsModule,
-    MatButtonModule
+    MatButtonModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

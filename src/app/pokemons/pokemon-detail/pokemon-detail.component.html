@@ -14,7 +14,7 @@
                 <mat-grid-tile>
                         <mat-list>
                                 <mat-list-item>
-                                        {{pokemon.name}}<button mat-icon-button><i class="material-icons">play_arrow</i></button>
+                                        {{pokemon.name}}<button mat-icon-button (click)="playSound()"><i class="material-icons">play_arrow</i></button>
                                 </mat-list-item>
                                 <mat-list-item>
                                         <mat-chip-list>

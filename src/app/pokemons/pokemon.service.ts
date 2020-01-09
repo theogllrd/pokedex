@@ -15,14 +15,13 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-
-  getPokemons(): Observable<PagedData<Pokemon>> {
-    const params = new HttpParams().set('limit', `${this.pokemonCount}`);
-    return this.http.get<PagedData<Pokemon>>(this.pokemonUrl, { params});
-  }
-
   getPokemonsById(id: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(this.pokemonUrl + '/' + id);
+  }
+
+  getPokemons(offset: number, limit: number): Observable<PagedData<Pokemon>> {
+    const params = new HttpParams().set('offset', `${offset}`).set('limit', `${limit}`);
+    return this.http.get<PagedData<Pokemon>>(this.pokemonUrl, { params} );
   }
 
 }
