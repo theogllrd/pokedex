@@ -1,5 +1,5 @@
 <p class="sectionTitle">My Pokemons</p>
-<mat-nav-list>
+<mat-nav-list *ngIf="pokemons">
  
   <a mat-list-item href="/pokemons/{{pokemon.id}}" *ngFor="let pokemon of pokemons.data">  
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="pokemon">

@@ -1,3 +1,39 @@
-<p>pokemon-detail works!</p>
+<audio autoplay *ngIf="pokemon" id="audio">
+        <source src="../../../assets/audio/{{pokemon.id}}.mp3" type="audio/mp3">
+        <p>Votre navigateur ne prend pas en charge l'audio HTML</p>
+</audio>
 
-{{ pokemon.name }}
+<mat-card id="mat-card" *ngIf="pokemon">
+        <mat-grid-list cols="2" rowHeight="230px">
+                <mat-grid-tile>
+                        <mat-list>
+                                <mat-list-item><img src="../../../assets/img/official-artwork/{{pokemon.id}}.png" alt="Avatar" height="150px"/></mat-list-item>
+                                <mat-list-item id="pokemonId">No. {{pokemon.id}}</mat-list-item>
+                        </mat-list>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <mat-list>
+                                <mat-list-item>
+                                        {{pokemon.name}}<button mat-icon-button><i class="material-icons">play_arrow</i></button>
+                                </mat-list-item>
+                                <mat-list-item>
+                                        <mat-chip-list>
+                                                <mat-chip *ngFor="let type of pokemon.types">
+                                                        {{type}}
+                                                </mat-chip>
+                                        </mat-chip-list>
+                                </mat-list-item>
+                                <mat-list-item>
+                                        Taille: {{pokemon.height}} m
+                                </mat-list-item>
+                                <mat-list-item>
+                                        Poids: {{pokemon.weight}} kg
+                                </mat-list-item>
+                        </mat-list>
+                </mat-grid-tile>
+
+        </mat-grid-list>
+        {{pokemon.description}}
+</mat-card>
+
+<button mat-raised-button (click)="goBack()">Retour</button>

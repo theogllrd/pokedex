@@ -1,7 +1,8 @@
 import { PokemonService } from './../pokemon.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -10,10 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  private pokemon: Pokemon;
+  @Input() pokemon: Pokemon;
   private id: number;
 
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -24,4 +25,7 @@ export class PokemonDetailComponent implements OnInit {
     );
   }
 
+  goBack() {
+    this.location.back();
+  }
 }
