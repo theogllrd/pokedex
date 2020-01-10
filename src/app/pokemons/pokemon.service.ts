@@ -11,7 +11,7 @@ import { PagedData } from '../models/pages-data.model';
 export class PokemonService {
 
   pokemonUrl = 'http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io/pokemons';
-  private pokemonCount = 151;
+  // private pokemonCount = 151;
 
   constructor(private http: HttpClient) { }
 

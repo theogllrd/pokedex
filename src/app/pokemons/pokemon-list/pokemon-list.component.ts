@@ -13,7 +13,7 @@ export class PokemonListComponent implements OnInit {
 
   private pokemons: PagedData<Pokemon>;
   private pokemonOffset = 0;
-  private pokemonLimit = 5;
+  private pokemonLimit = 10;
 
   constructor(private pokemonService: PokemonService) { }
 
