@@ -1,14 +1,13 @@
-<audio autoplay *ngIf="pokemon" id="audio">
-        <source src="../../../assets/audio/{{pokemon.id}}.mp3" type="audio/mp3">
-        <p>Votre navigateur ne prend pas en charge l'audio HTML</p>
-</audio>
-
-<mat-card id="mat-card" *ngIf="pokemon">
+<mat-card id="mat-card" *ngIf="pokemon$ | async as pokemon">
         <mat-grid-list cols="2" rowHeight="230px">
                 <mat-grid-tile>
                         <mat-list>
                                 <mat-list-item><img src="../../../assets/img/official-artwork/{{pokemon.id}}.png" alt="Avatar" height="150px"/></mat-list-item>
-                                <mat-list-item id="pokemonId">No. {{pokemon.id}}</mat-list-item>
+                                <mat-list-item id="pokemonId">No. {{pokemon.id | number:'3.'}}</mat-list-item>
+                                <audio autoplay *ngIf="pokemon" id="audio">
+                                        <source src="../../../assets/audio/{{pokemon.id}}.mp3" type="audio/mp3">
+                                        <p>Votre navigateur ne prend pas en charge l'audio HTML</p>
+                                </audio>
                         </mat-list>
                 </mat-grid-tile>
                 <mat-grid-tile>
@@ -36,4 +35,3 @@
         {{pokemon.description}}
 </mat-card>
 
-<button mat-raised-button (click)="goBack()">Retour</button>

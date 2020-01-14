@@ -1,11 +1,11 @@
 <mat-drawer-container>
 
-        <mat-drawer opened>
-                <app-pokemon-list></app-pokemon-list>  
+        <mat-drawer opened disableClose mode="side">
+                <app-pokemon-list (pokemonChanged)="getPokemonDetail($event)"></app-pokemon-list>  
         </mat-drawer>
 
         <mat-drawer-content>
-                Details pokemon
+                <app-pokemon-detail [id]="this.id"></app-pokemon-detail>
         </mat-drawer-content>
 
 </mat-drawer-container>

@@ -1,6 +1,6 @@
 import { Pokemon } from './../../models/pokemon.model';
 import { PokemonService } from './../pokemon.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PagedData } from 'src/app/models/pages-data.model';
 
@@ -14,6 +14,8 @@ export class PokemonListComponent implements OnInit {
   private pokemons: PagedData<Pokemon>;
   private pokemonOffset = 0;
   private pokemonLimit = 10;
+  
+  @Output() pokemonChanged: EventEmitter<number> =   new EventEmitter();
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -37,7 +39,10 @@ export class PokemonListComponent implements OnInit {
     this.getPokemon();
   }
 
-
+  getPokemonDetail(id: number){
+    console.log('clic sur pokemon ' + id + ' dans list');
+    this.pokemonChanged.emit(id);
+  }
 
 
 }
