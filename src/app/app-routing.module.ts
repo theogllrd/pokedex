@@ -7,8 +7,8 @@ import { PokedexComponent } from './pokemons/pokedex/pokedex.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
-  { path: 'pokemons', component: PokemonListComponent},
-  { path: 'pokemons/:id', component: PokemonDetailComponent}
+  { path: 'pokemons', component: PokedexComponent},
+  // { path: 'pokemons/:id', component: PokemonDetailComponent}
 ];
 
 @NgModule({
