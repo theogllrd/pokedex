@@ -14,6 +14,7 @@ export class PokemonListComponent implements OnInit {
   private pokemons: PagedData<Pokemon>;
   private pokemonOffset = 0;
   private pokemonLimit = 10;
+  private search: string;
   
   @Output() pokemonChanged: EventEmitter<number> =   new EventEmitter();
 
@@ -35,13 +36,27 @@ export class PokemonListComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('scrolled!!');
-    this.getPokemon();
+      console.log('scrolled!!');
+      if( this.search === undefined || this.search === '') {
+        this.getPokemon();
+      }
   }
 
   getPokemonDetail(id: number){
     console.log('clic sur pokemon ' + id + ' dans list');
     this.pokemonChanged.emit(id);
+  }
+
+  searchPokemon(search) {
+    this.search = search.target.value;
+    if (this.search === '') { this.getPokemon(); } else {
+      this.pokemonService.getPokemonsWithSearch(this.search).subscribe(
+        result => {
+          this.pokemons = result;
+        }
+      );
+    }
+    
   }
 
 

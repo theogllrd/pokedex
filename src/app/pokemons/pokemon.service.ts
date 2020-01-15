@@ -24,4 +24,9 @@ export class PokemonService {
     return this.http.get<PagedData<Pokemon>>(this.pokemonUrl, { params} );
   }
 
+  getPokemonsWithSearch(search: string) {
+    const params = new HttpParams().set('search', `${search}`).set('limit', '151');
+    return this.http.get<PagedData<Pokemon>>(this.pokemonUrl, { params} );
+  }
+
 }

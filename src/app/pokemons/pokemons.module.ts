@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatListModule, MatCardModule, MatGridListModule, MatChipsModule, MatButtonModule } from '@angular/material';
+import { MatListModule, MatCardModule, MatGridListModule, MatChipsModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
@@ -33,7 +33,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     MatChipsModule,
     MatButtonModule,
     InfiniteScrollModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule
   ]
 })
 export class PokemonsModule { }

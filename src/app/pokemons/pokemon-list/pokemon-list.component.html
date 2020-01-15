@@ -1,5 +1,13 @@
 <p class="sectionTitle">My Pokemons</p>
 
+
+<form>
+  <mat-form-field>
+    <input matInput placeholder="Search pokemon" (keyup)="searchPokemon($event)">
+  </mat-form-field>
+</form>
+
+
 <mat-nav-list *ngIf="pokemons" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false">
   <a mat-list-item (click)="getPokemonDetail(pokemon.id)" *ngFor="let pokemon of pokemons.data">  
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="pokemon">
