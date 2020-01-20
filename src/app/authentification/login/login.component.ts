@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     console.log(this.token);
 
 
-
+/*
 // CODE DE NICO
     login(customerData){
       console.warn('login/passwd :', customerData);
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["/pokedex"]);
       }
     }
-
+*/
 
 
 
