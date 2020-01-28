@@ -25,11 +25,6 @@ export class PokemonDetailComponent implements OnChanges {
     this.getPokemonDetail();
   }
 
-  playSound(): void {
-    // document.getElementById('audio').play();
-  }
-
-
   getPokemonDetail(){
     console.log('je get le pokemon ' + this.pokemonId);
     this.pokemon$ = this.pokemonService.getPokemonsById(this.pokemonId);
