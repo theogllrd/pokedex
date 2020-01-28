@@ -4,7 +4,7 @@
                         <mat-list>
                                 <mat-list-item><img src="../../../assets/img/official-artwork/{{pokemon.id}}.png" alt="Avatar" height="150px"/></mat-list-item>
                                 <mat-list-item id="pokemonId">No. {{pokemon.id | number:'3.'}}</mat-list-item>
-                                <audio autoplay *ngIf="pokemon" id="audio">
+                                <audio autoplay #audio>
                                         <source src="../../../assets/audio/{{pokemon.id}}.mp3" type="audio/mp3">
                                         <p>Votre navigateur ne prend pas en charge l'audio HTML</p>
                                 </audio>
@@ -13,7 +13,7 @@
                 <mat-grid-tile>
                         <mat-list>
                                 <mat-list-item>
-                                        {{pokemon.name}}<button mat-icon-button (click)="playSound()"><i class="material-icons">play_arrow</i></button>
+                                        {{pokemon.name}}<button mat-icon-button (click)="audio.play()"><i class="material-icons">play_arrow</i></button>
                                 </mat-list-item>
                                 <mat-list-item>
                                         <mat-chip-list>

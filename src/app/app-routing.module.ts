@@ -5,9 +5,9 @@ import { LoginComponent } from './authentification/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
-  { path: 'pokemons', component: PokedexComponent },
-  { path: 'pokemons/auth', component: LoginComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'pokemons', component: PokedexComponent }
 ];
 
 @NgModule({

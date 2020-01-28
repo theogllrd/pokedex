@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { PokemonService } from 'src/app/pokemons/pokemon.service';
 import { Token } from 'src/app/models/token.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +21,10 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   
   
+  
 
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private pokemonService: PokemonService) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private pokemonService: PokemonService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: ''
@@ -30,23 +33,33 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginData) {
 
-
     if (loginData.email === '' ) { return this.displaySnackBar('Email required', 'X', 2000); }
     if (loginData.password === '' ) { return this.displaySnackBar('Password required', 'X', 2000); }
     
-
     console.warn('login : ', loginData);
 
-    this.pokemonService.connexion(loginData).pipe(
-      tap(myResult => {
-          sessionStorage.setItem('token', myResult)
-      }).subscribe()
+    this.pokemonService.connexion(loginData).subscribe(
+      myResult => {
+      localStorage.setItem('token', myResult.access_token); }
+      );
 
-    );
-    console.log(this.token);
+
+    console.log('token dans storage = ' + localStorage.getItem('token'));
+    this.testLogin();
+  }
+
+
+  testLogin(){
+    if (sessionStorage.getItem('token') !== ''){
+      console.log('connexion reussi');
+      this.router.navigate(['/pokemons']);
+    }
+    else{console.log('null');}
+  }
 
 
 /*
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // CODE DE NICO
     login(customerData){
       console.warn('login/passwd :', customerData);
@@ -70,13 +83,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["/pokedex"]);
       }
     }
+
 */
 
 
 
 
-
-  }
+  
 
   
 
